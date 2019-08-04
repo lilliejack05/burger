@@ -1,7 +1,7 @@
-// Import the ORM to implement functions that will interact with the database
+// ORM to implement functions that will interact with the database
 var orm = require('../config/orm.js');
 
-// Create the burger object
+// create the burger object
 var burger = {
   // Select all burger table entries
   selectAll: function(cb) {
@@ -10,14 +10,14 @@ var burger = {
     });
   },
 
-  // The variables cols and vals are arrays
+  // variables cols and vals are arrays
   insertOne: function(cols, vals, cb) {
     orm.insertOne('burgers', cols, vals, function(res) {
       cb(res);
     });
   },
 
-  // The objColVals is an object specifying columns as object keys with associated values
+  // objColVals is an object specifying columns as object keys with associated values
   updateOne: function(objColVals, condition, cb) {
     orm.updateOne('burgers', objColVals, condition, function(res) {
       cb(res);

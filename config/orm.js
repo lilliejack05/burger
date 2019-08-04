@@ -3,13 +3,13 @@ var connection = require("./connection");
 // turn object to a string
 function objToSql(ob) {
     var arr = [];
-    for (var key in ob) {
+    for (var key in ob) 
       if (Object.hasOwnProperty.call(ob, key)) {
        arr.push(key + "=" + ob[key]);
         }
     }
     return arr.toString();
-}
+
     var orm = {
         // select from table
         selectAll: function(table, cb){
@@ -24,10 +24,8 @@ function objToSql(ob) {
     }
     
     // insert into table
-    insertOne: function (table, cols, vals, cb) {
+         insertOne: function (table, cols, vals, cb) {
         var queryString = "INSERT INTO " + table + " (" + cols.toString() + ") VALUES (?);"
-
-            //console.log(queryString);
 
         connection.query(queryString, vals, function (err, result) {
             if (err) {
@@ -46,9 +44,9 @@ function objToSql(ob) {
             if (err) {
                 throw err;
             }  
-            callback(result);
+            cb(result);
         
     });
     
 module.exports = orm;
-    };
+    }
