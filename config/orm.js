@@ -12,30 +12,30 @@ function objToSql(ob) {
 
     var orm = {
         // select from table
-        selectAll: function(table, cb){
+        selectAll: function (table, callback){
             var queryString = "SELECT * FROM ??";
             connection.query(queryString, [table], function(err, result) {
                 if (err) {
                     throw err;
                 }
-                cb(result);    
+                callback(result);    
             });
         }
     }
     
     // insert into table
-         insertOne: function (table, cols, vals, cb) {
-        var queryString = "INSERT INTO " + table + " (" + cols.toString() + ") VALUES (?);"
+         insertOne: function (table, cols, vals, callback) {
+        var queryString = "INSERT INTO " + table + " " + cols.toString() + ") VALUES (?)";
 
         connection.query(queryString, vals, function (err, result) {
             if (err) {
                 throw err;
             }
-            cb(result);
+            callback(result);
         }
     )
-    // update based on id.
-    updateOne: function (table, objColVals, condition, cb) {
+     //update based on id.
+        updateOne: function (table, objColVals, condition, callback) {
         var queryString = "UPDATE " + table + " SET " + objToSql(objColVals) + " WHERE " + condition + ";";
 
        // console.log(queryString);
@@ -44,9 +44,10 @@ function objToSql(ob) {
             if (err) {
                 throw err;
             }  
-            cb(result);
+            callback(result);
         
     });
     
+}    
+         };
 module.exports = orm;
-    }
