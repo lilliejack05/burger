@@ -46,7 +46,7 @@ function objToSql(ob) {
             if (err) {
                 throw err;
             }  
-            cb(result);
+            callback(result);
         
     });
     
