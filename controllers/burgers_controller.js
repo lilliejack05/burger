@@ -3,7 +3,7 @@ var express = require('express');
 var router = express.Router();
 
 // model (burger.js) to use its database functions.
-var burger = require('../models/burger.js');
+var burger = require('./db/models/burger.js');
 
 // create the routes 
 router.get('/', function(req, res) {
@@ -16,7 +16,7 @@ router.get('/', function(req, res) {
   });
 });
 
-router.post('/burgers', function(req, res) {
+router.post('/burgers/id', function(req, res) {
   burger.insertOne([
     'burger_name'
   ], [

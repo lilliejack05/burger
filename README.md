@@ -5,7 +5,7 @@ Eat-Da-Burger! is a restaurant app that lets users input the names of burgers th
 
 
 
-A Burger Eating application with Module Packages Installed Node.js/MySql/Epxress/Handlebars/Materalize
+A Burger Eating application with Module Packages Installed Node.js/MySql/Epxress/Handlebars
 
 
 
