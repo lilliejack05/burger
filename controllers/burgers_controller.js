@@ -3,7 +3,7 @@ var express = require('express');
 var router = express.Router();
 
 // model (burger.js) to use its database functions.
-var burger = require('./db/models/burger.js');
+var burger = require('../models/burger');
 
 // create the routes 
 router.get('/', function(req, res) {
@@ -16,8 +16,9 @@ router.get('/', function(req, res) {
   });
 });
 
-router.post('/burgers/id', function(req, res) {
-  burger.insertOne([
+router.post('/burgers/create', function(req, res) {
+  console.log("insertburger")
+  burger.insertOne([ 
     'burger_name'
   ], [
     req.body.burger_name
@@ -27,6 +28,7 @@ router.post('/burgers/id', function(req, res) {
 });
 
 router.put('/burgers/:id', function(req, res) {
+  console.log("req",req.params.id)
   var condition = 'id = ' + req.params.id;
 
   burger.updateOne({
